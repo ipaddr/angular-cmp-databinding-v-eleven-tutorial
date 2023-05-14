@@ -6,23 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  serverElements = [];
-  newServerName = '';
-  newServerContent = '';
+  customers = [];
+  newCustomerName = '';
+  newCustomerBalance = '';
 
-  onAddServer() {
-    this.serverElements.push({
-      type: 'server',
-      name: this.newServerName,
-      content: this.newServerContent
+  onAddCustomer() {
+    this.customers.push({
+      type: 'normal',
+      name: this.newCustomerName,
+      balance: this.newCustomerBalance
     });
   }
 
-  onAddBlueprint() {
-    this.serverElements.push({
-      type: 'blueprint',
-      name: this.newServerName,
-      content: this.newServerContent
+  onAddPriorityCustomer() {
+    this.customers.push({
+      type: 'priority',
+      name: this.newCustomerName,
+      content: this.newCustomerBalance
     });
   }
 }
