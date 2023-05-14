@@ -1,28 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  customers = [];
-  newCustomerName = '';
-  newCustomerBalance = '';
-
-  onAddCustomer() {
-    this.customers.push({
+  customers = [
+    {
       type: 'normal',
-      name: this.newCustomerName,
-      balance: this.newCustomerBalance
-    });
+      name: 'Normal Customer',
+      balance: 10000000.00
+    }
+    ,
+    {
+      type: 'priority',
+      name: 'Priority Customer',
+      balance: 2000000000.00
+    }
+  ];
+
+  onCustomerAdded(customerData: {name: string, balance: number}){
+    this.customers.push(
+      {
+        type: 'normal',
+        name: customerData.name,
+        balance: customerData.balance
+      }
+    );
   }
 
-  onAddPriorityCustomer() {
-    this.customers.push({
-      type: 'priority',
-      name: this.newCustomerName,
-      content: this.newCustomerBalance
-    });
+  onPrirorityCustomerAdded(customerData: {name: string, balance: number}){
+    this.customers.push(
+      {
+        type: 'priority',
+        name: customerData.name,
+        balance: customerData.balance
+      }
+    );
   }
 }
